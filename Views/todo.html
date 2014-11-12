@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="todoDiary">
+<title>ToDo List</title>
+  <head>
+    <link rel="stylesheet" href="C:\Users\Administrator\Desktop\ToDoList\CSS\bootstrap.css">
+    <link rel="stylesheet" href="C:\Users\Administrator\Desktop\ToDoList\CSS\style.css">
+    <script src="C:\Users\Administrator\Desktop\ToDoList\Scripts\angular.js"></script>
+    <script src="C:\Users\Administrator\Desktop\ToDoList\Scripts\jquery.js"></script>
+    <script src="C:\Users\Administrator\Desktop\ToDoList\Scripts\bootstrap.min.js"></script>
+    <script src="C:\Users\Administrator\Desktop\ToDoList\Scripts\logic.js"></script>
+  </head>
+  <body>
+   <h2>Todo List</h2>
+    <div ng-controller="todoController">
+      <span>{{remaining()}} of {{todos.length}} remaining</span>
+      <ul class="unstyled">
+        <li ng-repeat="todo in todos">
+          <input type="checkbox" ng-model="todo.checked">
+          <span class="checked-{{todo.checked}}">{{todo.text}}</span>
+        </li>
+      </ul>
+      <form ng-submit="add()">
+        <input type="text" ng-model="todoWork"  size="30"
+               placeholder="What's New on Your List">
+        <input class="btn-primary" type="submit" value="Add">
+      </form>
+    </div>
